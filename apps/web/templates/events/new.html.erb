@@ -1,7 +1,17 @@
+<% unless params.valid? %>
+  <div class="errors">
+    <h3>There was a problem with your submission</h3>
+    <ul>
+      <% params.error_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
 <h2>Add event</h2>
 
 <%=
-  form_for :book, '/events' do
+  form_for :event, routes.events_path do
     div class: 'input' do
       label      :title
       text_field :title

@@ -19,4 +19,19 @@ describe 'Add an event' do
     current_path.must_equal('/events')
     assert page.has_content?('New Event')
   end
+
+  it 'displays list of errors when params contains errors' do
+    visit '/events/new'
+
+    within 'form#event-form' do
+      click_button 'Create'
+    end
+
+    current_path.must_equal('/events')
+
+    assert page.has_content?('There was a problem with your submission')
+    assert page.has_content?('Title must be filled')
+    assert page.has_content?('Description must be filled')
+    assert page.has_content?('Location must be filled')
+  end
 end

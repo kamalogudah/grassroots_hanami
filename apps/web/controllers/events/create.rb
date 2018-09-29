@@ -16,7 +16,7 @@ module Web::Controllers::Events
       if params.valid?
         @event = EventRepository.new.create(params[:event])
 
-        redirect_to '/events'
+        redirect_to routes.events_path
       else
         self.status = 422
       end
