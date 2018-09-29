@@ -1,0 +1,3 @@
+project=grassroots
+test=minitest
+template=erb
