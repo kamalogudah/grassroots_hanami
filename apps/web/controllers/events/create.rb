@@ -2,10 +2,24 @@ module Web::Controllers::Events
   class Create
     include Web::Action
 
+    expose :event
+
+    params do
+      required(:event).schema do
+        required(:title).filled(:str?)
+        required(:description).filled(:str?)
+        required(:location).filled(:str?)
+      end
+    end
+
     def call(params)
-      EventRepository.new.create(params[:event])
-      
-      redirect_to '/events'
+      if params.valid?
+        @event = EventRepository.new.create(params[:event])
+
+        redirect_to '/events'
+      else
+        self.status = 422
+      end
     end
   end
 end
