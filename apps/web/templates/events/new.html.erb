@@ -1,0 +1,36 @@
+<h2>Add event</h2>
+
+<%=
+  form_for :book, '/events' do
+    div class: 'input' do
+      label      :title
+      text_field :title
+    end
+
+    div class: 'input' do
+      label      :description
+      text_field :description
+    end
+
+     div class: 'input' do
+      label      :location
+      text_field :location
+    end
+
+
+     div class: 'input' do
+      label      :start_time
+      datetime_field :statrt_time
+    end
+
+
+     div class: 'input' do
+      label      :end_time
+      datetime_field :end_time
+    end
+
+    div class: 'controls' do
+      submit 'Create Event'
+    end
+  end
+%>
