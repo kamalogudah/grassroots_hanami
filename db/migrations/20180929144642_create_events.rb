@@ -6,8 +6,8 @@ Hanami::Model.migration do
       column :title, String, null: false
       column :description, String, null: false
       column :location, String, null: false
-      column :start_time, DateTime, null: false
-      column :end_time, DateTime, null: false
+      column :start_time, DateTime, null: true
+      column :end_time, DateTime, null: true
 
 
       column :created_at, DateTime, null: false

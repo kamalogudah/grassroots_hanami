@@ -1,13 +1,15 @@
 <h2>All events</h2>
 
-<div id="events">
-  <div class="event">
-    <h3>Gor Mahia vs Afc Leopards</h3>
-    <p>location <strong>Kasarani Stadium</strong></p>
+<% if events.any? %>
+  <div id="events">
+    <% events.each do |book| %>
+      <div class="event">
+        <h2><%= event.title %></h2>
+        <p><%= event.description %></p>
+        <p><%= event.location %></p>
+      </div>
+    <% end %>
   </div>
-
-  <div class="event">
-    <h3>Test Driven Development</h3>
-    <p>location <strong>Andela</strong></p>
-  </div>
-</div>
+<% else %>
+  <p class="placeholder">There are no events yet.</p>
+<% end %>
